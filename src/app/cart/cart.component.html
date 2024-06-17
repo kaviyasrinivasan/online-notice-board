@@ -1,0 +1,39 @@
+<!-- src/app/cart/cart.component.html -->
+<nav class="navbar">
+  <a routerLink="/product-list" class="nav-link">Notices</a>
+  <a routerLink="/cart" class="nav-link">Reminder</a>
+  <a routerLink="/about" class="nav-link">About</a>
+</nav>
+<router-outlet></router-outlet>
+
+
+<div>
+  <h1>Reminders</h1>
+<div class="container">
+  <div *ngFor="let product of cart">
+    <div class="card">
+      <img [src]="product['imageUrl']" class="img" alt="{{ product.name }}" height="100" width="180">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-price">{{ product.date }}</p>
+          <p class="card-description">Venue: {{product.venue}}</p>
+        <button class="card-button" (click)="removeFromCart(product)">Remove</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="contact-info">
+      <h3>Contact Us</h3>
+      <p>Email: contact &#64; noticeboard.com</p>
+      <p>Phone: +91 8574968512</p>
+    </div>
+    <div class="registered-symbol">
+      <p>&copy; 2024 Online Notice Board. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
